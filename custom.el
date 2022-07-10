@@ -95,3 +95,8 @@
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
 (global-set-key [f6] 'ace-jump-word-mode)
+
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
+(add-hook 'markdown-mode-hook 'turn-on-auto-fill)
+;;(setq-default auto-fill-function 'do-auto-fill)
