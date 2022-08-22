@@ -28,7 +28,7 @@
      ("dot"
       (:foreground "gray50"))))
  '(package-selected-packages
-   '(org-bullets tide js-auto-format-mode js-format cyberpunk-theme gitpatch adoc-mode ox-asciidoc org-beautify-theme organic-green-theme all-the-icons neotree ace-jump-mode selectric-mode rg clang-format+ lsp-mode company))
+   '(centered-cursor-mode centered-window org-bullets tide js-auto-format-mode js-format cyberpunk-theme gitpatch adoc-mode ox-asciidoc org-beautify-theme organic-green-theme all-the-icons neotree ace-jump-mode selectric-mode rg clang-format+ lsp-mode company))
  '(pdf-view-midnight-colors (cons "#bbc2cf" "#282c34"))
  '(rustic-ansi-faces
    ["#282c34" "#ff6c6b" "#98be65" "#ECBE7B" "#51afef" "#c678dd" "#46D9FF" "#bbc2cf"])
@@ -135,3 +135,9 @@
 
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+(require 'centered-window)
+(add-hook 'org-mode-hook (lambda () (centered-window-mode 1)))
+(add-hook 'org-mode-hook (lambda () (display-fill-column-indicator-mode 0)))
+(add-hook 'org-mode-hook (lambda () (display-line-numbers-mode 0)))
+;;;;;;;
