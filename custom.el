@@ -28,7 +28,7 @@
      ("dot"
       (:foreground "gray50"))))
  '(package-selected-packages
-   '(centered-cursor-mode centered-window org-bullets tide js-auto-format-mode js-format cyberpunk-theme gitpatch adoc-mode ox-asciidoc org-beautify-theme organic-green-theme all-the-icons neotree ace-jump-mode selectric-mode rg clang-format+ lsp-mode company))
+   '(lsp-ui go-mode centered-cursor-mode centered-window org-bullets tide js-auto-format-mode js-format cyberpunk-theme gitpatch adoc-mode ox-asciidoc org-beautify-theme organic-green-theme all-the-icons neotree ace-jump-mode selectric-mode rg clang-format+ lsp-mode company))
  '(pdf-view-midnight-colors (cons "#bbc2cf" "#282c34"))
  '(rustic-ansi-faces
    ["#282c34" "#ff6c6b" "#98be65" "#ECBE7B" "#51afef" "#c678dd" "#46D9FF" "#bbc2cf"])
@@ -83,6 +83,7 @@
 (define-key global-map [remap switch-to-buffer] #'helm-mini)
 
 (which-key-mode)
+(add-hook 'sh-mode 'lsp)
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'c++-mode-hook 'lsp)
 (add-hook 'c-mode-hook 'clang-format+-mode)
@@ -111,7 +112,6 @@
 (put 'customize-themes 'disabled nil)
 
 (load-theme 'doom-xcode t)
-(put 'projectile-ripgrep 'disabled nil)
 
 (defun setup-tide-mode ()
   (interactive)
@@ -140,4 +140,5 @@
 (add-hook 'org-mode-hook (lambda () (centered-window-mode 1)))
 (add-hook 'org-mode-hook (lambda () (display-fill-column-indicator-mode 0)))
 (add-hook 'org-mode-hook (lambda () (display-line-numbers-mode 0)))
-;;;;;;;
+
+(add-hook 'sh-mode-hook (lambda () (setq indent-tabs-mode t)))
